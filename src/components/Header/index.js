@@ -1,33 +1,29 @@
 import { NavLink } from "react-router-dom";
 
-import ROUTES from "../../config/routes";
+import { HEADER_ROUTES_CONFIG } from "../../config/routes";
 
 import { Logo, Button } from "../index";
 
-function Header() {
-  const { DASHBOARD, SEARCH, FAVORITES } = ROUTES;
+import styles from "./Header.module.css";
 
+function Header() {
   return (
-    <header className="Header">
+    <header className={styles.header}>
       <Logo />
 
       <nav>
-        <ul>
-          <li>
-            <NavLink to={DASHBOARD} activeClassName="active">
-              Dashboard
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={SEARCH} activeClassName="active">
-              Search
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={FAVORITES} activeClassName="active">
-              Favorites
-            </NavLink>
-          </li>
+        <ul className={styles.list}>
+          {HEADER_ROUTES_CONFIG.map((route) => (
+            <li key={route.path} className={styles.listItem}>
+              <NavLink
+                to={route.path}
+                activeClassName={styles.active}
+                className={styles.link}
+              >
+                {route.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
 

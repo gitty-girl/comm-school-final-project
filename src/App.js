@@ -1,13 +1,14 @@
 import Routes from "./Routes";
 
 import { Header } from "./components";
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <div>
+    <AuthContextProvider>
       <Header />
       <Routes />
-    </div>
+    </AuthContextProvider>
   );
 }
 

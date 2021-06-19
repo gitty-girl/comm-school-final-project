@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 
-import ROUTES from "../../config/routes";
+import { LOGO_ROUTE_CONFIG } from "../../config/routes";
 
 function Logo() {
-  const { DASHBOARD } = ROUTES;
-
   return (
     <div>
-      <Link to={DASHBOARD}>
+      <Link to={LOGO_ROUTE_CONFIG.path}>
         <h1>Logo here</h1>
       </Link>
     </div>
