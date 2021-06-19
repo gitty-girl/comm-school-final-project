@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
 
-import ROUTES from "../config/routes";
-import Logo from "./Logo";
-import Button from "./Button";
+import ROUTES from "../../config/routes";
+
+import { Logo, Button } from "../index";
 
 function Header() {
   const { DASHBOARD, SEARCH, FAVORITES } = ROUTES;
 
   return (
-    <header>
+    <header className="Header">
       <Logo />
 
       <nav>
