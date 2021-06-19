@@ -1,5 +1,14 @@
+import Routes from "./Routes";
+
+import Header from "./components/Header";
+
 function App() {
-  return <div className="App">Hi</div>;
+  return (
+    <div>
+      <Header />
+      <Routes />
+    </div>
+  );
 }
 
 export default App;
