@@ -16,7 +16,7 @@ function Routes() {
             exact={route.exact}
             render={(props) => (
               <Guard>
-                <Page {...props} />
+                <Page {...props} path={route.path} />
               </Guard>
             )}
           />

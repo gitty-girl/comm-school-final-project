@@ -7,6 +7,8 @@ import { ROUTES } from "../../constants/routes";
 function GuestGuard({ children }) {
   const { isAuthenticated } = useAuth();
 
+  // console.log(children.props.match.path);
+
   if (isAuthenticated) {
     return <Redirect to={ROUTES.DASHBOARD} />;
   }

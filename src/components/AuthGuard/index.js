@@ -5,7 +5,6 @@ import { useAuth } from "../../context/AuthContext";
 import { ROUTES } from "../../constants/routes";
 
 function AuthGuard({ children }) {
-  console.log(ROUTES);
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {

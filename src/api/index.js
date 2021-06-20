@@ -1,13 +1,14 @@
 import axios from "axios";
 
-const API_URL = "https://api.github.com"; //process.env.GITHUB_API_URL;
+const GITHUB_API_URL = process.env.REACT_APP_GITHUB_API_URL;
+const GITHUB_API_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 async function getUsers({ page = 1 }) {
   const response = await axios.request({
     method: "GET",
-    url: `${API_URL}/search/users?q=followers:%3E=1000&per_page=20&page=${page}`,
+    url: `${GITHUB_API_URL}/search/users?q=followers:%3E=1000&per_page=20&page=${page}`,
     headers: {
-      Authorization: "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",
+      Authorization: `token ${GITHUB_API_TOKEN}`,
     },
   });
 
@@ -17,9 +18,9 @@ async function getUsers({ page = 1 }) {
 async function getUserDetails({ login }) {
   const response = await axios.request({
     method: "GET",
-    url: `${API_URL}/users/${login}`,
+    url: `${GITHUB_API_URL}/users/${login}`,
     headers: {
-      Authorization: "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",
+      Authorization: `token ${GITHUB_API_TOKEN}`,
     },
   });
 
