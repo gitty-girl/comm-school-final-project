@@ -1,5 +1,9 @@
 import { useState } from "react";
+
+import { Link } from "react-router-dom";
+
 import { useAuth } from "../../context/AuthContext";
+import { ROUTES } from "../../constants/routes";
 
 import styles from "./SignInForm.module.css";
 
@@ -39,9 +43,13 @@ function SignInForm() {
           />
         </label>
 
-        <button type="submit" onClick={handleSignIn}>
-          Sign In
-        </button>
+        <div>
+          <button type="submit" onClick={handleSignIn}>
+            Sign In
+          </button>
+
+          <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+        </div>
       </form>
     </div>
   );

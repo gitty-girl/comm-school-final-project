@@ -4,8 +4,8 @@ import { initialState, reducer } from "./reducer";
 import { signInUser } from "../../api/auth";
 
 import { toggleSession, parseToken } from "../../utils/jwt";
-import { authLogin } from "./actions";
-import { initialezeAuthEffect } from "./effect";
+import { authLogin, authLogout } from "./actions";
+import { initializeAuthEffect } from "./effect";
 
 const AuthContext = createContext();
 
@@ -14,7 +14,6 @@ function AuthContextProvider({ children }) {
 
   async function login(username, password) {
     const response = await signInUser(username, password);
-
     const { token } = response;
 
     toggleSession(token);
@@ -24,8 +23,13 @@ function AuthContextProvider({ children }) {
     dispatch(authLogin(payload));
   }
 
+  function logout() {
+    toggleSession(null);
+    dispatch(authLogout());
+  }
+
   useEffect(() => {
-    initialezeAuthEffect(dispatch);
+    initializeAuthEffect(dispatch);
   }, []);
 
   // if (!state.isInitialized) {
@@ -33,7 +37,7 @@ function AuthContextProvider({ children }) {
   // }
 
   return (
-    <AuthContext.Provider value={{ ...state, login }}>
+    <AuthContext.Provider value={{ ...state, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

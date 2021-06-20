@@ -8,16 +8,17 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case ACTIONS.AUTH_INITIALIZES: {
+    case ACTIONS.AUTH_INITIALIZED: {
       const { isAuthenticated, user } = action.payload;
 
       return {
         ...state,
-        isInitialized: true,
         isAuthenticated,
+        isInitialized: true,
         user,
       };
     }
+
     case ACTIONS.AUTH_LOGIN: {
       const { user } = action.payload;
 
@@ -27,6 +28,7 @@ function reducer(state = initialState, action) {
         user,
       };
     }
+
     case ACTIONS.AUTH_LOGOUT: {
       return {
         ...state,
@@ -34,6 +36,7 @@ function reducer(state = initialState, action) {
         user: null,
       };
     }
+
     default:
       return state;
   }

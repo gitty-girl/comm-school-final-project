@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useHistory } from "react-router";
+import { useHistory, Link } from "react-router-dom";
 
 import styles from "./SignUpForm.module.css";
 
@@ -118,9 +118,12 @@ function SignUpForm() {
           />
         </label>
 
-        <button type="submit" onClick={handleSignUp}>
-          Sign Up
-        </button>
+        <div>
+          <button type="submit" onClick={handleSignUp}>
+            Sign Up
+          </button>
+          <Link to={ROUTES.SiGN_IN}>Back to Sign in</Link>
+        </div>
       </form>
     </div>
   );

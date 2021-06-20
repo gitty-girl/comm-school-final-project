@@ -8,6 +8,7 @@ function Routes() {
       {ROUTES_CONFIG.map((route) => {
         const Page = route.page;
         const Guard = route.guard;
+
         return (
           <Route
             key={route.path}
@@ -18,7 +19,6 @@ function Routes() {
                 <Page {...props} />
               </Guard>
             )}
-            component={route.page}
           />
         );
       })}

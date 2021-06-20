@@ -1,0 +1,52 @@
+.listWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(min(200px, 100%), 1fr));
+  grid-gap: 2rem;
+  max-width: 1190px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.listItem {
+  border: 1px solid tomato;
+}
+
+.avatar {
+  width: 100%;
+}
+
+.infoWrapper {
+  padding: 0.8rem;
+}
+
+.info {
+  margin: 0 0 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.infoDetail {
+  margin-bottom: 0.5rem;
+}
+
+.seeMore {
+  display: block;
+  margin: 0 auto;
+  padding: 0.4rem 1.2rem;
+  max-width: 80px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid tomato;
+}
+
+.loadMore {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 3rem;
+  max-width: 300px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid tomato;
+  background: transparent;
+  font-size: 1.2rem;
+}

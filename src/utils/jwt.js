@@ -14,7 +14,6 @@ function parseToken(accessToken) {
   }
 
   const decoded = jwtDecode(accessToken);
-
   const currentTime = Date.now() / 1000;
 
   return { valid: decoded.exp > currentTime, payload: decoded.payload };

@@ -4,7 +4,7 @@ function SignIn({ location }) {
   const { state } = location;
   return (
     <div>
-      {state?.success && <h3> Sign was Successfull!</h3>}
+      {state?.success && <h3> Sign was Successfull! </h3>}
 
       <SignInForm />
     </div>

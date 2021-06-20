@@ -1,7 +1,11 @@
+import { useAuth } from "../../context/AuthContext";
+
 function Button() {
+  const { logout } = useAuth();
+
   return (
     <div>
-      <button>Log Out</button>
+      <button onClick={logout}>Log Out</button>
     </div>
   );
 }

@@ -1,10 +1,9 @@
 import { parseToken } from "../../utils/jwt";
 import { authInitialized } from "./actions";
 
-function initialezeAuthEffect(dispatch) {
+function initializeAuthEffect(dispatch) {
   try {
     const accessToken = localStorage.getItem("accessToken");
-
     const { valid, payload } = parseToken(accessToken);
 
     if (accessToken && valid) {
@@ -17,4 +16,4 @@ function initialezeAuthEffect(dispatch) {
   }
 }
 
-export { initialezeAuthEffect };
+export { initializeAuthEffect };
