@@ -51,4 +51,22 @@ async function getUserRepositories({ login }) {
   return response.data;
 }
 
-export { getUsers, getUserDetails, getUserOrganisations, getUserRepositories };
+async function findUsersByUsername({ username }) {
+  const response = await axios.request({
+    method: "GET",
+    url: `${GITHUB_API_URL}/search/users?q=${username}`,
+    headers: {
+      Authorization: `token ${GITHUB_API_TOKEN}`,
+    },
+  });
+
+  return response.data;
+}
+
+export {
+  getUsers,
+  getUserDetails,
+  getUserOrganisations,
+  getUserRepositories,
+  findUsersByUsername,
+};

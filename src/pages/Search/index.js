@@ -1,67 +1,73 @@
 import { useState, useEffect } from "react";
 
-import { getUserDetails } from "../../api";
+import { findUsersByUsername } from "../../api";
 
 import styles from "./Search.module.css";
 
 function Search() {
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState({});
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  function handleSubmit(e) {
-    setUsername(e.target.value);
+  function reset() {
+    setUsername("");
+    setUsers([]);
   }
 
-  useEffect(() => {
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (username.length <= 0) {
+      setUsers([]);
+      return;
+    }
+
+    if (event.code !== "Enter") {
+      return;
+    }
+
+    console.log({ event });
+
     setLoading(true);
 
-    // console.log("inside useeffect");
-    // console.log("username in useeffect", username);
-
-    getUserDetails({ username })
-      .then((user) => {
-        // console.log(user);
-        setUser(user);
-      })
+    findUsersByUsername({ username })
+      .then((data) => setUsers(data.items))
       .catch((err) => setError(err.message))
-      .finally(() => {
-        setLoading(false);
-        resetForm();
-      });
-  }, [username]);
+      .finally(() => setLoading(false));
+  }
 
   function handleClear(e) {
     e.preventDefault();
 
-    setUsername("");
-    e.target.value = "";
+    reset();
   }
 
-  const resetForm = () => setUsername("");
+  console.log({ username, users });
 
   return (
-    <div className={styles.container} onSubmit={handleSubmit}>
-      <form className={styles.form}>
-        <label htmlFor="search" className={styles.label}>
-          Go ahead, search for more users...
-        </label>
-        <div className={styles.wrapper}>
-          <input
-            id="search"
-            type="text"
-            name="search"
-            placeholder="Username"
-            className={styles.input}
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <button className={styles.button} onClick={handleClear}>
-            x
-          </button>
-        </div>
-      </form>
+    <div className={styles.container}>
+      <label htmlFor="search" className={styles.label}>
+        Go ahead, search for more users...
+      </label>
+
+      <div className={styles.wrapper}>
+        <input
+          id="search"
+          type="text"
+          name="search"
+          placeholder="Username"
+          className={styles.input}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          onKeyUp={(e) => handleSubmit(e)}
+        />
+        <button className={styles.button} onClick={handleClear}>
+          x
+        </button>
+      </div>
+
+      <div>{users.map((user) => user.login).join(", ")}</div>
     </div>
   );
 }
