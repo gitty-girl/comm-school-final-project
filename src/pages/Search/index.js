@@ -7,15 +7,11 @@ import styles from "./Search.module.css";
 function Search() {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState({});
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   function handleSubmit(e) {
-    setSubmitted(true);
     setUsername(e.target.value);
-
-    // console.log(submitted);
   }
 
   useEffect(() => {
@@ -32,10 +28,9 @@ function Search() {
       .catch((err) => setError(err.message))
       .finally(() => {
         setLoading(false);
-        setSubmitted(false);
         resetForm();
       });
-  }, [submitted]);
+  }, [username]);
 
   function handleClear(e) {
     e.preventDefault();
@@ -44,18 +39,10 @@ function Search() {
     e.target.value = "";
   }
 
-  function checkIfSubmitted(e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-
-      handleSubmit(e);
-    }
-  }
-
   const resetForm = () => setUsername("");
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onSubmit={handleSubmit}>
       <form className={styles.form}>
         <label htmlFor="search" className={styles.label}>
           Go ahead, search for more users...
@@ -69,7 +56,6 @@ function Search() {
             className={styles.input}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            onKeyDown={(e) => checkIfSubmitted(e)}
           />
           <button className={styles.button} onClick={handleClear}>
             x

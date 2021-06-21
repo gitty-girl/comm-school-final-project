@@ -1,0 +1,22 @@
+.container {
+  padding: 60px 30px;
+  width: 40%;
+}
+
+.heading {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: tomato;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  width: 500px;
+  background: #fdffef;
+  border-radius: 50px;
+  border: solid 5px tomato;
+  box-sizing: border-box;
+}

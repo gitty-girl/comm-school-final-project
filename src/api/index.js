@@ -27,4 +27,28 @@ async function getUserDetails({ login }) {
   return response.data;
 }
 
-export { getUsers, getUserDetails };
+async function getUserOrganisations({ login }) {
+  const response = await axios.request({
+    method: "GET",
+    url: `${GITHUB_API_URL}/users/${login}/orgs`,
+    headers: {
+      Authorization: `token ${GITHUB_API_TOKEN}`,
+    },
+  });
+
+  return response.data;
+}
+
+async function getUserRepositories({ login }) {
+  const response = await axios.request({
+    method: "GET",
+    url: `${GITHUB_API_URL}/users/${login}/repos`,
+    headers: {
+      Authorization: `token ${GITHUB_API_TOKEN}`,
+    },
+  });
+
+  return response.data;
+}
+
+export { getUsers, getUserDetails, getUserOrganisations, getUserRepositories };

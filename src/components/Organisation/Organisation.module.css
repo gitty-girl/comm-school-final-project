@@ -1,0 +1,15 @@
+.item {
+}
+
+.avatarWrapper {
+}
+
+.link {
+  display: block;
+}
+
+.avatar {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px tomato;
+}

@@ -1,0 +1,16 @@
+.container {
+  padding: 20px;
+  width: 400px;
+}
+
+.heading {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: tomato;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 15px;
+}
