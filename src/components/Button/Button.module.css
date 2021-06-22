@@ -1,0 +1,14 @@
+.danger {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  padding: 17px 24px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: all 0.2s ease-in-out;
+}
+
+.danger:hover {
+  background-color: #962d22;
+}

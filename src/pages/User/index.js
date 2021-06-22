@@ -29,18 +29,14 @@ function User() {
   useEffect(() => {
     // get user
     getUserDetails({ login })
-      .then((data) => {
-        console.log(login);
-        console.log(data);
-        setCurrentUser(data);
-      })
+      .then((data) => setCurrentUser(data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
 
     // get user organisations
     getUserOrganisations({ login })
       .then((data) => {
-        setOrganisations(data);
+        setOrganisations(data.slice(0, 3));
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
@@ -48,7 +44,7 @@ function User() {
     // get user repositories
     getUserRepositories({ login })
       .then((data) => {
-        setRepositories(data);
+        setRepositories(data.slice(0, 10));
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

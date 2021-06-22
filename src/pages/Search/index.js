@@ -4,13 +4,16 @@ import styles from "./Search.module.css";
 
 import { findUsersByUsername } from "../../api";
 
-import { UsersListing } from "../../components";
+import { UsersListing, Loader } from "../../components";
 
 function Search() {
   const [username, setUsername] = useState("");
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const [logins, setLogins] = useState([]);
+  const loginsCount = logins.length || 0;
 
   function reset() {
     setUsername("");
@@ -29,8 +32,6 @@ function Search() {
       return;
     }
 
-    console.log({ event });
-
     setLoading(true);
 
     findUsersByUsername({ username })
@@ -44,8 +45,6 @@ function Search() {
 
     reset();
   }
-
-  console.log({ users });
 
   return (
     <div className={styles.container}>
@@ -71,9 +70,9 @@ function Search() {
         </div>
       </div>
 
-      <UsersListing users={users} />
-
-      <div>{users.map((user) => user.login).join(", ")}</div>
+      <div className={styles.result}>
+        {loading ? <Loader /> : <UsersListing users={users} />}
+      </div>
     </div>
   );
 }

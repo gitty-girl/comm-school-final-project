@@ -5,25 +5,16 @@ import { Link } from "react-router-dom";
 import { Detail, Names } from "../";
 
 function UserItem({ user }) {
-  const {
-    id,
-    html_url,
-    name,
-    login,
-    avatar_url,
-    followers,
-    following,
-    public_repos,
-  } = user;
-
-  console.log(html_url);
+  const { id, name, login, avatar_url, followers, following, public_repos } =
+    user;
 
   return (
     <div key={id} className={styles.listItem}>
       <img src={avatar_url} alt={login} className={styles.avatar} />
 
       <div className={styles.infoWrapper}>
-        <Names login={login} name={name} url={html_url} />
+        <Names login={login} name={name} />
+
         <ul className={styles.info}>
           <Detail title="Followers" value={followers} />
           <Detail title="Following" value={following} />

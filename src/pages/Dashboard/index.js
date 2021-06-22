@@ -19,14 +19,16 @@ function Dashboard() {
   useEffect(() => {
     setLoading(true);
 
-    getUsers({ page })
-      .then(({ items }) => {
-        setUsers((prev) => [...prev, ...items]);
+    if (users.length !== page * 20) {
+      getUsers({ page })
+        .then(({ items }) => {
+          setUsers((prev) => [...prev, ...items]);
 
-        setLogins((prev) => [...prev, ...items.map((i) => i.login)]);
-      })
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+          setLogins((prev) => [...prev, ...items.map((i) => i.login)]);
+        })
+        .catch((err) => setError(err.message))
+        .finally(() => setLoading(false));
+    }
   }, [page]);
 
   useEffect(() => {
@@ -53,7 +55,6 @@ function Dashboard() {
     setPage((prev) => prev + 1);
   }
 
-  console.log(loading);
   return (
     <section className={styles.container}>
       <UsersListing users={users} />

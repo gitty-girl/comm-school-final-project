@@ -1,14 +1,13 @@
 import styles from "./Names.module.css";
 
-function Names({ name, url, login }) {
-  console.log({ url });
+function Names({ name, login }) {
   return (
     <div>
       <h1 className={styles.names}>
         {name && <span className={styles.pName}>{name}</span>}
 
         <a
-          href={url}
+          href={`https://github.com/${login}`}
           target="_blank"
           rel="noopener noreferrer"
           title={login}
