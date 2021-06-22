@@ -5,7 +5,7 @@ import { useFavorites } from "../../context/FavoritesContext";
 function ToggleFavoriteButton({ user }) {
   const { isFavorite, removeFromFavorites, addTofavorites } = useFavorites();
 
-  const { login, avatar_url } = user;
+  const { login, avatar_url, html_url, name } = user;
   return (
     <div>
       <div>
@@ -17,8 +17,10 @@ function ToggleFavoriteButton({ user }) {
           <button
             onClick={() =>
               addTofavorites({
-                login: login,
-                avatar_url: avatar_url,
+                login,
+                avatar_url,
+                name,
+                html_url,
               })
             }
           >

@@ -28,3 +28,4 @@ export { default as Detail } from "./Detail";
 export { default as UsersListing } from "./UsersListing";
 export { default as UserItem } from "./UserItem";
 export { default as Names } from "./Names";
+export { default as FavoriteUser } from "./FavoriteUser";

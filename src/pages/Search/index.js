@@ -45,8 +45,6 @@ function Search() {
     reset();
   }
 
-  console.log({ username, users });
-
   return (
     <div className={styles.container}>
       <div>

@@ -1,9 +1,9 @@
 import { useFavorites } from "../../context/FavoritesContext";
 
-function Favorites() {
-  const { favorites, removeFromFavorites } = useFavorites();
+import { FavoriteUser } from "../../components";
 
-  console.log(favorites);
+function Favorites() {
+  const { favorites } = useFavorites();
 
   return (
     <section>
@@ -13,17 +13,7 @@ function Favorites() {
       </h1>
       <div className="favorites-list">
         {favorites.map((item) => (
-          <div className="favorites-item" key={item.login}>
-            <div className="avatar">
-              <img src={item.avatar_url} alt="User" />
-            </div>
-            <div>
-              <h3>{item.login}</h3>
-            </div>
-            <button onClick={() => removeFromFavorites(item.login)}>
-              Remove from favorites
-            </button>
-          </div>
+          <FavoriteUser user={item} />
         ))}
       </div>
     </section>
