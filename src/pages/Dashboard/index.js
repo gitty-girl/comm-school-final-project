@@ -58,7 +58,7 @@ function Dashboard() {
     <section className={styles.container}>
       <UsersListing users={users} />
 
-      <div>
+      <div className={styles.wrapper}>
         {loading ? (
           <Loader />
         ) : (

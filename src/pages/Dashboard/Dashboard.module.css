@@ -20,3 +20,8 @@
 .container {
   padding-bottom: 100px;
 }
+
+.wrapper {
+  margin-top: 60px;
+  position: relative;
+}
