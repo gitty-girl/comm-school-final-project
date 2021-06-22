@@ -26,7 +26,7 @@ function UserDetails({ user }) {
 
       <ToggleFavoriteButton user={user} />
 
-      {bio !== "" && (
+      {bio !== null && (
         <div className={styles.bioWrapper}>
           <p className={styles.bio}>{bio}</p>
         </div>

@@ -45,9 +45,11 @@ function Search() {
     reset();
   }
 
+  console.log({ users });
+
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.inputWrapper}>
         <label htmlFor="search" className={styles.label}>
           Go ahead, search for more users...
         </label>

@@ -4,7 +4,7 @@ import styles from "./Dashboard.module.css";
 
 import { getUsers, getUserDetails } from "../../api";
 
-import { UsersListing } from "../../components";
+import { UsersListing, Loader } from "../../components";
 
 function Dashboard() {
   const [page, setPage] = useState(1);
@@ -53,17 +53,20 @@ function Dashboard() {
     setPage((prev) => prev + 1);
   }
 
+  console.log(loading);
   return (
-    <section>
+    <section className={styles.container}>
       <UsersListing users={users} />
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <button onClick={onLoadMoreButtonClick} className={styles.loadMore}>
-          Load More
-        </button>
-      )}
+      <div>
+        {loading ? (
+          <Loader />
+        ) : (
+          <button onClick={onLoadMoreButtonClick} className={styles.loadMore}>
+            Load More
+          </button>
+        )}
+      </div>
     </section>
   );
 }

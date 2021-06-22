@@ -1,5 +1,6 @@
 .listItem {
   border: 1px solid tomato;
+  padding: 0 0 20px;
 }
 
 .avatar {
@@ -7,13 +8,17 @@
 }
 
 .infoWrapper {
-  padding: 0.8rem;
+  padding: 0 1rem 0;
 }
 
 .info {
   margin: 0 0 1.5rem;
   list-style: none;
   padding: 0;
+}
+
+.avatar {
+  border-bottom: 1px solid tomato;
 }
 
 .seeMore {
@@ -23,5 +28,14 @@
   max-width: 80px;
   text-align: center;
   text-decoration: none;
-  border: 1px solid tomato;
+
+  border: 1px solid #217dbb;
+  color: #217dbb;
+  transition: all 0.3s ease-in-out;
+  text-transform: capitalize;
+}
+
+.seeMore:hover {
+  background-color: #217dbb;
+  color: #fff;
 }

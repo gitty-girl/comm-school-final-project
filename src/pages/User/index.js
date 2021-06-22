@@ -13,6 +13,7 @@ import {
   UserDetails,
   RepositoriesListing,
   OrganisationsListing,
+  Loader,
 } from "../../components";
 
 function User() {
@@ -56,7 +57,7 @@ function User() {
   return (
     <main className={styles.container}>
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <>
           <aside className={styles.userDetails}>

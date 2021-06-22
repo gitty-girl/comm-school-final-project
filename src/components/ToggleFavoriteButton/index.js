@@ -8,9 +8,12 @@ function ToggleFavoriteButton({ user }) {
   const { login, avatar_url, html_url, name } = user;
   return (
     <div>
-      <div>
+      <div className={styles.wrapper}>
         {isFavorite(login) ? (
-          <button onClick={() => removeFromFavorites(login)}>
+          <button
+            onClick={() => removeFromFavorites(login)}
+            className={styles.removeBtn}
+          >
             Remove from favorites
           </button>
         ) : (
@@ -23,6 +26,7 @@ function ToggleFavoriteButton({ user }) {
                 html_url,
               })
             }
+            className={styles.addBtn}
           >
             Add to favorites
           </button>

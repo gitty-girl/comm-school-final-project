@@ -1,6 +1,7 @@
 import styles from "./Names.module.css";
 
 function Names({ name, url, login }) {
+  console.log({ url });
   return (
     <div>
       <h1 className={styles.names}>

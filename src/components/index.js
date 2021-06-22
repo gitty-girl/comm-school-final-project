@@ -29,3 +29,8 @@ export { default as UsersListing } from "./UsersListing";
 export { default as UserItem } from "./UserItem";
 export { default as Names } from "./Names";
 export { default as FavoriteUser } from "./FavoriteUser";
+
+export { default as Loader } from "./Loader";
+
+export { default as Modal } from "./Modal";
+export { default as DeleteConfirmationModal } from "./DeleteConfirmationModal";

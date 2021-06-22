@@ -1,22 +1,21 @@
 .container {
-  padding: 60px 30px;
-  width: 40%;
+  padding: 0 30px;
 }
 
 .heading {
   font-size: 2rem;
   text-transform: uppercase;
   color: tomato;
+  margin-top: 10px;
 }
 
 .items {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 50px;
-  width: 500px;
+  padding: 20px 40px;
   background: #fdffef;
-  border-radius: 50px;
-  border: solid 5px tomato;
+  border-radius: 20px;
+  border: solid 4px tomato;
   box-sizing: border-box;
 }

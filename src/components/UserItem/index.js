@@ -7,7 +7,7 @@ import { Detail, Names } from "../";
 function UserItem({ user }) {
   const {
     id,
-    url,
+    html_url,
     name,
     login,
     avatar_url,
@@ -16,12 +16,14 @@ function UserItem({ user }) {
     public_repos,
   } = user;
 
+  console.log(html_url);
+
   return (
     <div key={id} className={styles.listItem}>
       <img src={avatar_url} alt={login} className={styles.avatar} />
 
       <div className={styles.infoWrapper}>
-        <Names login={login} name={name} url={url} />
+        <Names login={login} name={name} url={html_url} />
         <ul className={styles.info}>
           <Detail title="Followers" value={followers} />
           <Detail title="Following" value={following} />
@@ -31,7 +33,7 @@ function UserItem({ user }) {
 
       <div>
         <Link to={`/user/${login}`} className={styles.seeMore}>
-          See more
+          View more
         </Link>
       </div>
     </div>

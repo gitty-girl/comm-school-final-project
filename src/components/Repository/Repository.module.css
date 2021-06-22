@@ -1,17 +1,32 @@
 .item {
-  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0 20px;
   border-bottom: 3px solid #e0bba2;
 }
 
-.avatarWrapper {
+.item:last-child {
+  border-bottom: none;
+}
+
+.details {
+  margin-top: 0;
+  width: 100%;
+  list-style: none;
+  padding: 0;
 }
 
 .link {
   display: block;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  text-underline-position: under;
+  transition: all 0.2s ease-in-out;
+  color: tomato;
 }
 
-.avatar {
-  width: 100%;
-  border-radius: 6px;
-  box-shadow: 0 0 0 1px tomato;
+.link:hover {
+  color: rgb(16, 16, 150);
 }

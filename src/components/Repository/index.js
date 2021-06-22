@@ -7,7 +7,7 @@ function Repository({ repository }) {
     repository;
   return (
     <div className={styles.item} key={id}>
-      <ul>
+      <ul className={styles.details}>
         <Detail title="Repository name" value={name} />
         <Detail
           title="Description"
@@ -21,6 +21,7 @@ function Repository({ repository }) {
         target="_blank"
         rel="noopener noreferrer"
         title="Check on Github"
+        className={styles.link}
       >
         Check on Github
       </a>

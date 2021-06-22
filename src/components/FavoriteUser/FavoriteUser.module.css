@@ -1,0 +1,53 @@
+.item {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid tomato;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 15px;
+  right: 15px;
+  font-size: 1.2rem;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  background-color: #c0392b;
+}
+
+.seeMore {
+  display: block;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  text-underline-position: under;
+  transition: all 0.2s ease-in-out;
+  color: tomato;
+}
+
+.seeMore:hover {
+  color: rgb(16, 16, 150);
+}
