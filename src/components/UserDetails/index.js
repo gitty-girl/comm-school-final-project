@@ -1,6 +1,6 @@
 import styles from "./UserDetails.module.css";
 
-import { ToggleFavoriteButton, Detail } from "../";
+import { ToggleFavoriteButton, Detail, Names } from "../";
 
 function UserDetails({ user }) {
   const {
@@ -14,28 +14,14 @@ function UserDetails({ user }) {
     followers,
   } = user;
 
-  console.log(user);
-
   return (
     <>
       <div>
         <div className={styles.avatarWrapper}>
           <img src={avatar_url} alt="User Avatar" className={styles.avatar} />
         </div>
-        <div>
-          <h1 className={styles.names}>
-            <span className={styles.pName}>{name}</span>
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={login}
-              className={styles.link}
-            >
-              <span className={styles.pNickname}>{login}</span>
-            </a>
-          </h1>
-        </div>
+
+        <Names name={name} login={login} url={url} />
       </div>
 
       <ToggleFavoriteButton user={user} />

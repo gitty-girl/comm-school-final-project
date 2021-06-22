@@ -11,6 +11,10 @@ export { default as GuestGuard } from "./GuestGuard";
 export { default as SignUpForm } from "./SignUpForm";
 export { default as SignInForm } from "./SignInForm";
 
+//User Inside Page
+export { default as UserDetails } from "./UserDetails";
+export { default as ToggleFavoriteButton } from "./ToggleFavoriteButton";
+
 // Organisations
 export { default as OrganisationsListing } from "./OrganisationsListing";
 export { default as Organisation } from "./Organisation";
@@ -20,6 +24,7 @@ export { default as RepositoriesListing } from "./RepositoriesListing";
 export { default as Repository } from "./Repository";
 export { default as Detail } from "./Detail";
 
-//User Details
-export { default as UserDetails } from "./UserDetails";
-export { default as ToggleFavoriteButton } from "./ToggleFavoriteButton";
+//Users
+export { default as UsersListing } from "./UsersListing";
+export { default as UserItem } from "./UserItem";
+export { default as Names } from "./Names";

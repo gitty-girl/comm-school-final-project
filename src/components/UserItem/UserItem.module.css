@@ -1,0 +1,27 @@
+.listItem {
+  border: 1px solid tomato;
+}
+
+.avatar {
+  width: 100%;
+}
+
+.infoWrapper {
+  padding: 0.8rem;
+}
+
+.info {
+  margin: 0 0 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.seeMore {
+  display: block;
+  margin: 0 auto;
+  padding: 0.4rem 1.2rem;
+  max-width: 80px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid tomato;
+}

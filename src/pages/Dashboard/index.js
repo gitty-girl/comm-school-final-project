@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import styles from "./Dashboard.module.css";
 
 import { getUsers, getUserDetails } from "../../api";
 
+import { UsersListing } from "../../components";
+
 function Dashboard() {
   const [page, setPage] = useState(1);
   const [users, setUsers] = useState([]);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -41,56 +43,20 @@ function Dashboard() {
             });
           });
 
-          // console.log({ login, loginsCount, logins });
-
           setLogins((prev) => prev.filter((l) => l !== login));
         });
       });
     }
   }, [loginsCount]);
 
-  // console.log({ page, users });
-
   function onLoadMoreButtonClick() {
     setPage((prev) => prev + 1);
   }
 
   return (
-    <div>
-      Dashboard page
-      <div className={styles.listWrapper}>
-        {users.map((user) => {
-          const { id, login, avatar_url, followers, following, public_repos } =
-            user;
+    <section>
+      <UsersListing users={users} />
 
-          return (
-            <div key={id} className={styles.listItem}>
-              <img src={avatar_url} alt={login} className={styles.avatar} />
-
-              <div className={styles.infoWrapper}>
-                <ul className={styles.info}>
-                  <li className={styles.infoDetail}>
-                    <span>Username: </span> <span>{login}</span>
-                  </li>
-                  <li className={styles.infoDetail}>
-                    <span>Followers: </span> <span>{followers}</span>
-                  </li>
-                  <li className={styles.infoDetail}>
-                    <span>Following: </span> <span>{following}</span>
-                  </li>
-                  <li className={styles.infoDetail}>
-                    <span>Public Repos: </span> <span>{public_repos}</span>
-                  </li>
-                </ul>
-
-                <Link to={`/user/${login}`} className={styles.seeMore}>
-                  See more
-                </Link>
-              </div>
-            </div>
-          );
-        })}
-      </div>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -98,7 +64,7 @@ function Dashboard() {
           Load More
         </button>
       )}
-    </div>
+    </section>
   );
 }
 
