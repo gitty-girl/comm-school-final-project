@@ -3,8 +3,8 @@ import styles from "./DeleteConfirmationModal.module.css";
 function DeleteConfirmationModal({ toggleModal, removeFromFavorites, login }) {
   return (
     <div className={styles.modalBody}>
-      <div className={styles.modalMessage}>
-        <p>Are you sure you want to delete item?</p>
+      <div className={styles.messageWrapper}>
+        <p className={styles.message}>Are you sure you want to delete item?</p>
       </div>
       <div className={styles.buttons}>
         <button

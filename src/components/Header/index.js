@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import { useAuth } from "../../context/AuthContext";
+
 import { HEADER_ROUTES_CONFIG } from "../../config/routes";
 
 import { Logo, Button } from "../index";
@@ -7,6 +9,12 @@ import { Logo, Button } from "../index";
 import styles from "./Header.module.css";
 
 function Header() {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
   return (
     <header className={styles.header}>
       <Logo />
