@@ -49,6 +49,10 @@ function Dashboard() {
         });
       });
     }
+    return () => {
+      setLoading(false);
+      setError("");
+    };
   }, [loginsCount, logins]);
 
   function onLoadMoreButtonClick() {

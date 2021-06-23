@@ -61,6 +61,10 @@ function Search() {
         });
       });
     }
+    return () => {
+      setLoading(false);
+      setError("");
+    };
   }, [loginsCount, logins]);
 
   function handleClear(e) {

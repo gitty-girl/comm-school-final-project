@@ -48,6 +48,14 @@ function User() {
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
+
+    return () => {
+      setLoading(false);
+      setError("");
+      setOrganisations([]);
+      setRepositories([]);
+      setCurrentUser({});
+    };
   }, [login]);
 
   return (
