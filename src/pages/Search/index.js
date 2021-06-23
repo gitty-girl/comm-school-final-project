@@ -61,7 +61,7 @@ function Search() {
         });
       });
     }
-  }, [loginsCount]);
+  }, [loginsCount, logins]);
 
   function handleClear(e) {
     e.preventDefault();

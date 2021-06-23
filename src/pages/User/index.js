@@ -24,7 +24,7 @@ function User() {
   const [organisations, setOrganisations] = useState([]);
 
   const [loading, setLoading] = useState({});
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
 
   useEffect(() => {
     // get user
@@ -52,25 +52,29 @@ function User() {
 
   return (
     <main className={styles.container}>
-      {/* {error && <h1>Error occured</h1>} */}
-
-      {loading ? (
-        <Loader />
+      {error ? (
+        <p className={styles.errorText}>User Not Found!</p>
       ) : (
         <>
-          <aside className={styles.userDetails}>
-            <UserDetails user={currentUser} />
+          {loading ? (
+            <Loader />
+          ) : (
+            <>
+              <aside className={styles.userDetails}>
+                <UserDetails user={currentUser} />
 
-            {organisations.length > 0 && (
-              <OrganisationsListing organisations={organisations} />
-            )}
-          </aside>
+                {organisations.length > 0 && (
+                  <OrganisationsListing organisations={organisations} />
+                )}
+              </aside>
 
-          <section className={styles.repositories}>
-            {repositories.length > 0 && (
-              <RepositoriesListing repositories={repositories} />
-            )}
-          </section>
+              <section className={styles.repositories}>
+                {repositories.length > 0 && (
+                  <RepositoriesListing repositories={repositories} />
+                )}
+              </section>
+            </>
+          )}
         </>
       )}
     </main>

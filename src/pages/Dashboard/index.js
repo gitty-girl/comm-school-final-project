@@ -29,7 +29,7 @@ function Dashboard() {
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
     }
-  }, [page]);
+  }, [page, users.length]);
 
   useEffect(() => {
     if (loginsCount > 0) {
@@ -49,7 +49,7 @@ function Dashboard() {
         });
       });
     }
-  }, [loginsCount]);
+  }, [loginsCount, logins]);
 
   function onLoadMoreButtonClick() {
     setPage((prev) => prev + 1);

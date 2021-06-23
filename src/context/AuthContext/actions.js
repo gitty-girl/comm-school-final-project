@@ -26,7 +26,6 @@ function authLogout() {
 }
 
 function authError(error) {
-  console.log("autherror action", { error });
   return {
     type: ACTIONS.AUTH_ERROR,
     payload: {

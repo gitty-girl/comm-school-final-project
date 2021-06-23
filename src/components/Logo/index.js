@@ -7,7 +7,6 @@ import styles from "./Logo.module.css";
 const LOGO = require("../../assets/githublogo.png");
 
 function Logo() {
-  console.log(LOGO);
   return (
     <div>
       <Link to={LOGO_ROUTE_CONFIG.path}>

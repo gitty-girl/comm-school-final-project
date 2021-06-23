@@ -16,3 +16,10 @@
   flex-grow: 999;
   margin-left: 20px;
 }
+
+.errorText {
+  color: tomato;
+  font-size: 2rem;
+  text-align: center;
+  margin: 3rem auto 0;
+}

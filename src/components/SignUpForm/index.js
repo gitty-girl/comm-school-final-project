@@ -27,7 +27,7 @@ function SignUpForm() {
       .then(() => {
         History.push(ROUTES.SiGN_IN, { success: "true" });
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => console.log(e));
   }
 
   return (
