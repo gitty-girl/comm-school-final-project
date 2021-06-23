@@ -25,4 +25,14 @@ function authLogout() {
   };
 }
 
-export { authLogin, authLogout, authInitialized };
+function authError(error) {
+  console.log("autherror action", { error });
+  return {
+    type: ACTIONS.AUTH_ERROR,
+    payload: {
+      error,
+    },
+  };
+}
+
+export { authLogin, authLogout, authInitialized, authError };

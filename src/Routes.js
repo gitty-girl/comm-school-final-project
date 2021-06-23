@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import { ROUTES_CONFIG } from "./config/routes";
 
@@ -22,6 +22,8 @@ function Routes() {
           />
         );
       })}
+
+      <Route render={() => <Redirect to="/not-found" />} />
     </Switch>
   );
 }

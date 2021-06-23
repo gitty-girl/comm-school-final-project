@@ -5,6 +5,7 @@ const ROUTES = {
   USER: "/user/:login",
   SEARCH: "/search",
   FAVORITES: "/favorites",
+  NOT_FOUND: "/not-found",
 };
 
 export { ROUTES };

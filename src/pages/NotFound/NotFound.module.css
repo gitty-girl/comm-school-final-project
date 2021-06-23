@@ -1,0 +1,11 @@
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorText {
+  margin-top: 2rem;
+  color: tomato;
+}

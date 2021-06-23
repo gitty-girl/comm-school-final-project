@@ -4,7 +4,7 @@ import { initialState, reducer } from "./reducer";
 import { signInUser } from "../../api/auth";
 
 import { toggleSession, parseToken } from "../../utils/jwt";
-import { authLogin, authLogout } from "./actions";
+import { authLogin, authLogout, authError } from "./actions";
 import { initializeAuthEffect } from "./effect";
 
 const AuthContext = createContext();
@@ -14,7 +14,12 @@ function AuthContextProvider({ children }) {
 
   async function login(username, password) {
     const response = await signInUser(username, password);
-    const { token } = response;
+    const { token, message } = response;
+
+    if (message && !token) {
+      dispatch(authError(message));
+      return;
+    }
 
     toggleSession(token);
 
@@ -32,9 +37,9 @@ function AuthContextProvider({ children }) {
     initializeAuthEffect(dispatch);
   }, []);
 
-  // if (!state.isInitialized) {
-  //   return <div>Loading</div>;
-  // }
+  if (!state.isInitialized) {
+    return <div>Loading</div>;
+  }
 
   return (
     <AuthContext.Provider value={{ ...state, login, logout }}>

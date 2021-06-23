@@ -1,9 +1,18 @@
-import { SignIn, SignUp, Dashboard, User, Search, Favorites } from "../pages";
+import {
+  SignIn,
+  SignUp,
+  Dashboard,
+  User,
+  Search,
+  Favorites,
+  NotFound,
+} from "../pages";
 
 import { ROUTES } from "../constants/routes";
 import { GuestGuard, AuthGuard } from "../components";
 
-const { SiGN_IN, SIGN_UP, DASHBOARD, USER, SEARCH, FAVORITES } = ROUTES;
+const { SiGN_IN, SIGN_UP, DASHBOARD, USER, SEARCH, FAVORITES, NOT_FOUND } =
+  ROUTES;
 
 const ROUTES_CONFIG = [
   {
@@ -40,6 +49,12 @@ const ROUTES_CONFIG = [
     path: FAVORITES,
     exact: false,
     page: Favorites,
+    guard: AuthGuard,
+  },
+  {
+    path: NOT_FOUND,
+    exact: false,
+    page: NotFound,
     guard: AuthGuard,
   },
 ];

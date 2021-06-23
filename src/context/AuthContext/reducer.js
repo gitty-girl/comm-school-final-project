@@ -4,6 +4,7 @@ const initialState = {
   isInitialized: false,
   isAuthenticated: false,
   user: null,
+  error: null,
 };
 
 function reducer(state = initialState, action) {
@@ -26,6 +27,7 @@ function reducer(state = initialState, action) {
         ...state,
         isAuthenticated: true,
         user,
+        error: null,
       };
     }
 
@@ -34,6 +36,18 @@ function reducer(state = initialState, action) {
         ...state,
         isAuthenticated: false,
         user: null,
+        error: null,
+      };
+    }
+
+    case ACTIONS.AUTH_ERROR: {
+      const { error } = action.payload;
+
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null,
+        error,
       };
     }
 

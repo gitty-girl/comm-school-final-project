@@ -11,7 +11,7 @@ function SignInForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { login } = useAuth();
+  const { login, error } = useAuth();
 
   function handleSignIn(e) {
     // use async await when handling errors
@@ -47,18 +47,19 @@ function SignInForm() {
             />
           </label>
 
+          {error !== null && <p className={styles.formError}>{error}</p>}
           <div className={styles.buttons}>
-            <button
-              type="submit"
-              onClick={handleSignIn}
-              className={styles.primary}
-            >
-              Sign In
-            </button>
-
             <Link to={ROUTES.SIGN_UP} className={styles.link}>
               Sign Up
             </Link>
+
+            <button
+              type="submit"
+              onClick={handleSignIn}
+              className={styles.success}
+            >
+              Sign In
+            </button>
           </div>
         </form>
       </div>

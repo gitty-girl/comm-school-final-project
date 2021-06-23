@@ -133,16 +133,16 @@ function SignUpForm() {
           </label>
 
           <div className={styles.buttons}>
+            <Link to={ROUTES.SiGN_IN} className={styles.link}>
+              Sign in
+            </Link>
             <button
               type="submit"
               onClick={handleSignUp}
-              className={styles.primary}
+              className={styles.success}
             >
               Sign Up
             </button>
-            <Link to={ROUTES.SiGN_IN} className={styles.link}>
-              Back to Sign in
-            </Link>
           </div>
         </form>
       </div>
