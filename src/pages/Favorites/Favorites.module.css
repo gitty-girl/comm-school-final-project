@@ -18,3 +18,13 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5rem;
 }
+
+.notFoundWrapper {
+  font-size: 2rem;
+  color: #808080;
+  text-align: center;
+  padding-top: 4rem;
+  margin: 0 auto;
+  max-width: 500px;
+  line-height: 1.5;
+}

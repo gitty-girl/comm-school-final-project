@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import styles from "./Search.module.css";
 
-import { findUsersByUsername } from "../../api";
+import { findUsersByUsername, getUserDetails } from "../../api";
 
 import { UsersListing, Loader } from "../../components";
 
@@ -35,10 +35,33 @@ function Search() {
     setLoading(true);
 
     findUsersByUsername({ username })
-      .then((data) => setUsers(data.items))
+      .then((data) => {
+        setUsers(data.items);
+        setLogins((prev) => [...prev, ...data.items.map((i) => i.login)]);
+      })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }
+
+  useEffect(() => {
+    if (loginsCount > 0) {
+      logins.map((login) => {
+        return getUserDetails({ login }).then((data) => {
+          setUsers((prev) => {
+            return prev.map((user) => {
+              if (user.id === data.id) {
+                return { ...user, ...data };
+              }
+
+              return user;
+            });
+          });
+
+          setLogins((prev) => prev.filter((l) => l !== login));
+        });
+      });
+    }
+  }, [loginsCount]);
 
   function handleClear(e) {
     e.preventDefault();
