@@ -20,37 +20,48 @@ function SignInForm() {
   }
 
   return (
-    <div className={styles.formWrapper}>
-      <form className={styles.form}>
-        <label htmlFor="username" className={styles.formItem}>
-          Username
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <label htmlFor="password" className={styles.formItem}>
-          Password
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
+    <div className={styles.container}>
+      <div className={styles.formWrapper}>
+        <h1 className={styles.heading}>Please, sign in to continue...</h1>
+        <form className={styles.form}>
+          <label htmlFor="username" className={styles.formItem}>
+            Username
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className={styles.input}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </label>
+          <label htmlFor="password" className={styles.formItem}>
+            Password
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className={styles.input}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
 
-        <div>
-          <button type="submit" onClick={handleSignIn}>
-            Sign In
-          </button>
+          <div className={styles.buttons}>
+            <button
+              type="submit"
+              onClick={handleSignIn}
+              className={styles.primary}
+            >
+              Sign In
+            </button>
 
-          <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-        </div>
-      </form>
+            <Link to={ROUTES.SIGN_UP} className={styles.link}>
+              Sign Up
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

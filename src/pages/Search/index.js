@@ -94,6 +94,8 @@ function Search() {
       </div>
 
       <div className={styles.result}>
+        {error && <h1>{error}</h1>}
+
         {loading ? <Loader /> : <UsersListing users={users} />}
       </div>
     </div>

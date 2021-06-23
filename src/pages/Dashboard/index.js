@@ -57,6 +57,7 @@ function Dashboard() {
 
   return (
     <section className={styles.container}>
+      {error && <h1>{error}</h1>}
       <UsersListing users={users} />
 
       <div className={styles.wrapper}>

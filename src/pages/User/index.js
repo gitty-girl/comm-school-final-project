@@ -52,6 +52,8 @@ function User() {
 
   return (
     <main className={styles.container}>
+      {/* {error && <h1>Error occured</h1>} */}
+
       {loading ? (
         <Loader />
       ) : (
