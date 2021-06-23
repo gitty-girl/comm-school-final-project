@@ -2,17 +2,17 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 60px;
+  padding: 30px;
 }
 
 .userDetails {
   flex-basis: 20rem;
   flex-grow: 1;
-  padding: 0 20px;
+  margin-right: 20px;
 }
 
 .repositories {
   flex-basis: 0;
   flex-grow: 999;
-  padding: 0 20px;
+  margin-left: 20px;
 }

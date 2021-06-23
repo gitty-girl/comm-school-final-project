@@ -6,10 +6,7 @@ function Logo() {
   return (
     <div>
       <Link to={LOGO_ROUTE_CONFIG.path}>
-        {/* <img
-          href={require("../../assets/favorite-icon.png")}
-          alt="Github Logo"
-        /> */}
+        {/* <img src={LOGO} alt="Github Logo" /> */}
         <h1>Logo here</h1>
       </Link>
     </div>
