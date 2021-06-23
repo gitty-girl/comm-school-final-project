@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 
 import { LOGO_ROUTE_CONFIG } from "../../config/routes";
 
+import styles from "./Logo.module.css";
+
+const LOGO = require("../../assets/githublogo.png");
+
 function Logo() {
+  console.log(LOGO);
   return (
     <div>
       <Link to={LOGO_ROUTE_CONFIG.path}>
-        {/* <img src={LOGO} alt="Github Logo" /> */}
-        <h1>Logo here</h1>
+        <img src={LOGO.default} alt="Github Logo" className={styles.logo} />
       </Link>
     </div>
   );
